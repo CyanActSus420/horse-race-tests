@@ -3,6 +3,9 @@ extends Node
 @onready var fps_label: Label = $CanvasLayer/FPSLabel
 
 var scene_to_load = "res://scenes/Race.tscn"
+var selected_map = "res://scenes/maps/test_map_2.tscn"
+
+var map_scene:PackedScene
 var loading_screen = preload("res://scenes/Loading.tscn")
 
 var fullscreen = false

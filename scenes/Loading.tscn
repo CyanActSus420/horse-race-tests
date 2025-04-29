@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c7dj5uqn74dxc"]
 
-[ext_resource type="Script" uid="uid://dvhhge7fkp7xs" path="res://scripts/Loading.gd" id="1_5d8b5"]
+[ext_resource type="Script" uid="uid://dvhhge7fkp7xs" path="res://scripts/State-Loading.gd" id="1_5d8b5"]
 [ext_resource type="Texture2D" uid="uid://ccfarc6pypgmn" path="res://icon.png" id="1_rx3dl"]
 
 [node name="Loading" type="Node2D"]
@@ -22,9 +22,16 @@ offset_right = 592.0
 offset_bottom = 472.0
 
 [node name="HintLabel" type="Label" parent="."]
-offset_top = 368.0
+offset_top = 320.0
 offset_right = 640.0
-offset_bottom = 432.0
+offset_bottom = 384.0
 text = "horsey horse horse"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ProgressLabel" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 408.0
+offset_right = 212.0
+offset_bottom = 431.0
+text = "loading main game state..."

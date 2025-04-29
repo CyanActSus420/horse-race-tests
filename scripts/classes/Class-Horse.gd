@@ -84,8 +84,6 @@ func _on_game_started():
 	can_move = true
 
 func get_random_velocity():
-	#var shit = Vector2(randi_range(-1, 1), randi_range(-1, 1))
-	#velocity = Vector2(shit.x * speed, shit.y * speed)
 	velocity = Vector2(randf_range(-speed, speed), randf_range(-speed, speed))
 
 func do_braindead_move(_braindead_move):
