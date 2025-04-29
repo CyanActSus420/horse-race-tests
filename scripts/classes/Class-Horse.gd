@@ -89,7 +89,7 @@ func get_random_velocity():
 	velocity = Vector2(randf_range(-speed, speed), randf_range(-speed, speed))
 
 func do_braindead_move(_braindead_move):
-	print("%s did a braindead move (%s/%s)" % [Name, BrainDamage, _braindead_move])
+	#print("%s did a braindead move (%s/%s)" % [Name, BrainDamage, _braindead_move])
 	get_random_velocity()
 
 func _on_bouncetimer_timeout() -> void:
