@@ -46,6 +46,13 @@ Name = "Jovial Merryment"
 ShortName = "MERRY"
 HorseColor = Color(0.956863, 0.462745, 0.00392157, 1)
 
+[node name="Horse4" parent="." instance=ExtResource("2_sms8e")]
+position = Vector2(312, 296)
+Name = "Galablag"
+ShortName = "BLAG"
+HorseColor = Color(0.532791, 0.00356148, 0.924142, 1)
+BrainDamage = 7.0
+
 [node name="Carrot" parent="." instance=ExtResource("5_1wrd3")]
 position = Vector2(600, 312)
 
