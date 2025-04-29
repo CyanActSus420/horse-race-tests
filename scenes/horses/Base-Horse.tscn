@@ -11,7 +11,7 @@ shader_parameter/target_color = Color(0, 0, 0, 1)
 shader_parameter/replace_color = Color(0, 0, 0, 1)
 shader_parameter/tolerance = 0.09
 
-[node name="Horse" type="CharacterBody2D" node_paths=PackedStringArray("SpriteNode")]
+[node name="Horse" type="CharacterBody2D" node_paths=PackedStringArray("SpriteNode") groups=["Horse"]]
 script = ExtResource("1_gqigo")
 SpriteNode = NodePath("Sprite2D")
 metadata/_custom_type_script = "uid://bj31yut3xpjyd"

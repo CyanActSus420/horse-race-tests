@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp44f1qbp42qi"]
+
+[ext_resource type="Texture2D" uid="uid://bq6ycovev3o75" path="res://sprites/carrot.png" id="1_1y6wc"]
+[ext_resource type="Script" uid="uid://duosamtaln032" path="res://scripts/Entity-Carrot.gd" id="1_ikiep"]
+
+[node name="Carrot" type="Node2D"]
+script = ExtResource("1_ikiep")
+
+[node name="Carrot" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_1y6wc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(14, -20, 14, -19, 11, -19, 11, -18, 9, -18, 9, -17, 6, -17, 6, -16, 5, -16, 5, -15, 3, -15, 3, -14, 2, -14, 2, -13, 0, -13, 0, -12, -1, -12, -1, -11, -3, -11, -3, -9, -5, -9, -5, -8, -7, -8, -7, -7, -8, -7, -8, -6, -10, -6, -10, -5, -12, -5, -12, -4, -14, -4, -14, -3, -18, -3, -18, -2, -21, -2, -21, -1, -24, -1, -24, 0, -26, 0, -26, 1, -28, 1, -28, 2, -30, 2, -30, 3, -31, 3, -31, 4, -32, 4, -32, 5, -31, 5, -31, 7, -30, 7, -30, 8, -29, 8, -29, 10, -28, 10, -28, 17, -27, 17, -27, 19, -25, 19, -25, 20, -18, 20, -18, 19, -15, 19, -15, 18, -11, 18, -11, 17, -5, 17, -5, 18, -2, 18, -2, 19, 2, 19, 2, 20, 14, 20, 14, 19, 15, 19, 15, 18, 16, 18, 16, 17, 17, 17, 17, 16, 18, 16, 18, 13, 19, 13, 19, 12, 20, 12, 20, 3, 21, 3, 21, 2, 23, 2, 23, 1, 25, 1, 25, 0, 27, 0, 27, -1, 28, -1, 28, -2, 30, -2, 30, -5, 31, -5, 31, -7, 30, -7, 30, -10, 29, -10, 29, -11, 27, -11, 27, -12, 22, -12, 22, -13, 21, -13, 21, -14, 22, -14, 22, -17, 21, -17, 21, -19, 20, -19, 20, -20)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
