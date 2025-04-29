@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk8dlpc21in0n"]
+
+[ext_resource type="Script" uid="uid://bj31yut3xpjyd" path="res://scripts/classes/Class-Horse.gd" id="1_gqigo"]
+[ext_resource type="Shader" uid="uid://ccbbroh8s4ted" path="res://shaders/color_replace.gdshader" id="2_ax3qa"]
+[ext_resource type="Texture2D" uid="uid://d1vlce2ls333n" path="res://sprites/horse.png" id="2_gcgv6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_664ge"]
+resource_local_to_scene = true
+shader = ExtResource("2_ax3qa")
+shader_parameter/target_color = Color(0, 0, 0, 1)
+shader_parameter/replace_color = Color(0, 0, 0, 1)
+shader_parameter/tolerance = 0.09
+
+[node name="Horse" type="CharacterBody2D" node_paths=PackedStringArray("SpriteNode")]
+script = ExtResource("1_gqigo")
+SpriteNode = NodePath("Sprite2D")
+metadata/_custom_type_script = "uid://bj31yut3xpjyd"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_664ge")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_gcgv6")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(1.5, -32.5, 1.5, -31.5, 0.5, -31.5, 0.5, -30.5, -1.5, -30.5, -1.5, -29.5, -2.5, -29.5, -2.5, -28.5, -4.5, -28.5, -4.5, -27.5, -6.5, -27.5, -6.5, -26.5, -7.5, -26.5, -7.5, -25.5, -9.5, -25.5, -9.5, -24.5, -11.5, -24.5, -11.5, -23.5, -12.5, -23.5, -12.5, -22.5, -13.5, -22.5, -13.5, -21.5, -14.5, -21.5, -14.5, -20.5, -15.5, -20.5, -15.5, -19.5, -16.5, -19.5, -16.5, -18.5, -17.5, -18.5, -17.5, -17.5, -18.5, -17.5, -18.5, -16.5, -20.5, -16.5, -20.5, -15.5, -21.5, -15.5, -21.5, -14.5, -22.5, -14.5, -22.5, -13.5, -23.5, -13.5, -23.5, -12.5, -24.5, -12.5, -24.5, -11.5, -26.5, -11.5, -26.5, -10.5, -27.5, -10.5, -27.5, -9.5, -28.5, -9.5, -28.5, -8.5, -29.5, -8.5, -29.5, -3.5, -30.5, -3.5, -30.5, -2.5, -31.5, -2.5, -31.5, 28.5, -30.5, 28.5, -30.5, 29.5, -29.5, 29.5, -29.5, 30.5, -28.5, 30.5, -28.5, 31.5, -21.5, 31.5, -21.5, 30.5, -20.5, 30.5, -20.5, 27.5, -18.5, 27.5, -18.5, 26.5, -17.5, 26.5, -17.5, 19.5, -16.5, 19.5, -16.5, 18.5, -15.5, 18.5, -15.5, 13.5, -10.5, 13.5, -10.5, 11.5, -8.5, 11.5, -8.5, 12.5, -7.5, 12.5, -7.5, 13.5, -3.5, 13.5, -3.5, 14.5, -2.5, 14.5, -2.5, 15.5, -1.5, 15.5, -1.5, 17.5, -0.5, 17.5, -0.5, 20.5, 1.5, 20.5, 1.5, 22.5, 3.5, 22.5, 3.5, 23.5, 4.5, 23.5, 4.5, 24.5, 5.5, 24.5, 5.5, 25.5, 6.5, 25.5, 6.5, 26.5, 7.5, 26.5, 7.5, 27.5, 10.5, 27.5, 10.5, 26.5, 11.5, 26.5, 11.5, 23.5, 12.5, 23.5, 12.5, 22.5, 13.5, 22.5, 13.5, -1.5, 14.5, -1.5, 14.5, -2.5, 15.5, -2.5, 15.5, -3.5, 16.5, -3.5, 16.5, -4.5, 17.5, -4.5, 17.5, -5.5, 18.5, -5.5, 18.5, -6.5, 19.5, -6.5, 19.5, -7.5, 20.5, -7.5, 20.5, -8.5, 27.5, -8.5, 27.5, -9.5, 28.5, -9.5, 28.5, -10.5, 29.5, -10.5, 29.5, -11.5, 30.5, -11.5, 30.5, -13.5, 31.5, -13.5, 31.5, -28.5, 30.5, -28.5, 30.5, -29.5, 29.5, -29.5, 29.5, -31.5, 28.5, -31.5, 28.5, -32.5)

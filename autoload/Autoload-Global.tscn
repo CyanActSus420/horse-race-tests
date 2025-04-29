@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://qubqpbeyiq3m"]
+
+[ext_resource type="Script" uid="uid://i02whvx4oart" path="res://autoload/Autoload-Global.gd" id="1_f6n0l"]
+
+[node name="Global" type="Node"]
+script = ExtResource("1_f6n0l")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="FPSLabel" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "FPS: horse"
