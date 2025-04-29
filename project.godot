@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="horse race tests"
-run/main_scene="uid://ccdt3mulocm6c"
+run/main_scene="uid://c7dj5uqn74dxc"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://ccfarc6pypgmn"
 
