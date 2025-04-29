@@ -51,8 +51,8 @@ func _init_horse():
 	SpriteNode.material.set("shader_parameter/target_color", Color("00bc00"))
 	SpriteNode.material.set("shader_parameter/replace_color", Vector3(HorseColor.r, HorseColor.g, HorseColor.b))
 
-func do_braindead_move(braindead_move):
-	print("%s did a braindead move (%s/%s)" % [Name, BrainDamage, braindead_move])
+func do_braindead_move(_braindead_move):
+	print("%s did a braindead move (%s/%s)" % [Name, BrainDamage, _braindead_move])
 	get_random_velocity()
 
 func _process(delta: float) -> void:
