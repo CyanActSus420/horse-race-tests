@@ -11,3 +11,6 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("hidehud"):
 		hud.visible = !hud.visible
+
+func _on_timer_timeout() -> void:
+	GameHandler.game_started.emit()

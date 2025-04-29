@@ -25,17 +25,41 @@ class_name Horse
 
 @export_category("Nodes")
 @export var SpriteNode:Sprite2D
+@export var BounceSoundNode:AudioStreamPlayer
 
 const speed = 250
 
+var can_move:bool = false
+
 func _ready():
+	GameHandler.game_started.connect(_on_game_started)
 	_init_horse()
 	get_random_velocity()
 
-func get_random_velocity():
-	#var shit = Vector2(randi_range(-1, 1), randi_range(-1, 1))
-	#velocity = Vector2(shit.x * speed, shit.y * speed)
-	velocity = Vector2(randf_range(-speed, speed), randf_range(-speed, speed))
+func _process(delta: float) -> void:
+	if !can_move:
+		return
+	
+	if velocity == Vector2(0.0, 0.0):
+		get_random_velocity()
+	
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		BounceSoundNode.play()
+		if BrainDamage == 0:
+			velocity = velocity.bounce(collision.get_normal())
+			return
+		elif BrainDamage == 10:
+			do_braindead_move(10)
+			return
+		
+		
+		var braindead_move = randi_range(1, 10)
+		if braindead_move <= BrainDamage:
+			do_braindead_move(braindead_move)
+			return
+		
+		velocity = velocity.bounce(collision.get_normal())
 
 func _init_horse():
 	if ShortName == null:
@@ -51,27 +75,14 @@ func _init_horse():
 	SpriteNode.material.set("shader_parameter/target_color", Color("00bc00"))
 	SpriteNode.material.set("shader_parameter/replace_color", Vector3(HorseColor.r, HorseColor.g, HorseColor.b))
 
+func _on_game_started():
+	can_move = true
+
+func get_random_velocity():
+	#var shit = Vector2(randi_range(-1, 1), randi_range(-1, 1))
+	#velocity = Vector2(shit.x * speed, shit.y * speed)
+	velocity = Vector2(randf_range(-speed, speed), randf_range(-speed, speed))
+
 func do_braindead_move(_braindead_move):
 	print("%s did a braindead move (%s/%s)" % [Name, BrainDamage, _braindead_move])
 	get_random_velocity()
-
-func _process(delta: float) -> void:
-	if velocity == Vector2(0.0, 0.0):
-		get_random_velocity()
-	
-	var collision = move_and_collide(velocity * delta)
-	if collision:
-		if BrainDamage == 0:
-			velocity = velocity.bounce(collision.get_normal())
-			return
-		elif BrainDamage == 10:
-			do_braindead_move(10)
-			return
-		
-		
-		var braindead_move = randi_range(1, 10)
-		if braindead_move <= BrainDamage:
-			do_braindead_move(braindead_move)
-			return
-		
-		velocity = velocity.bounce(collision.get_normal())
