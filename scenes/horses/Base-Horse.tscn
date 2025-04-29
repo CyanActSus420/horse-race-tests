@@ -12,10 +12,11 @@ shader_parameter/target_color = Color(0, 0, 0, 1)
 shader_parameter/replace_color = Color(0, 0, 0, 1)
 shader_parameter/tolerance = 0.09
 
-[node name="Horse" type="CharacterBody2D" node_paths=PackedStringArray("SpriteNode", "BounceSoundNode") groups=["Horse"]]
+[node name="Horse" type="CharacterBody2D" node_paths=PackedStringArray("SpriteNode", "BounceSoundNode", "BounceTimerNode") groups=["Horse"]]
 script = ExtResource("1_gqigo")
 SpriteNode = NodePath("Sprite2D")
 BounceSoundNode = NodePath("AudioStreamPlayer")
+BounceTimerNode = NodePath("BounceTimer")
 metadata/_custom_type_script = "uid://bj31yut3xpjyd"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -29,3 +30,9 @@ polygon = PackedVector2Array(1.5, -32.5, 1.5, -31.5, 0.5, -31.5, 0.5, -30.5, -1.
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_664ge")
+
+[node name="BounceTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="BounceTimer" to="." method="_on_bouncetimer_timeout"]

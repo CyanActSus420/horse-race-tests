@@ -26,10 +26,12 @@ class_name Horse
 @export_category("Nodes")
 @export var SpriteNode:Sprite2D
 @export var BounceSoundNode:AudioStreamPlayer
+@export var BounceTimerNode:Timer
 
 const speed = 250
 
 var can_move:bool = false
+var can_play_bounce_sound:bool = true
 
 func _ready():
 	GameHandler.game_started.connect(_on_game_started)
@@ -45,7 +47,10 @@ func _process(delta: float) -> void:
 	
 	var collision = move_and_collide(velocity * delta)
 	if collision:
-		BounceSoundNode.play()
+		if can_play_bounce_sound:
+			BounceSoundNode.play()
+			can_play_bounce_sound = false
+			BounceTimerNode.start()
 		if BrainDamage == 0:
 			velocity = velocity.bounce(collision.get_normal())
 			return
@@ -86,3 +91,6 @@ func get_random_velocity():
 func do_braindead_move(_braindead_move):
 	print("%s did a braindead move (%s/%s)" % [Name, BrainDamage, _braindead_move])
 	get_random_velocity()
+
+func _on_bouncetimer_timeout() -> void:
+	can_play_bounce_sound = true
